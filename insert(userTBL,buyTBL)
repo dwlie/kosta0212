@@ -1,18 +1,14 @@
-CREATE TABLE stdTBL 
-( stdName    VARCHAR(10) NOT NULL PRIMARY KEY,
-  addr	  CHAR(4) NOT NULL
-);
-CREATE TABLE clubTBL 
-( clubName    VARCHAR(10) NOT NULL PRIMARY KEY,
-  roomNo    CHAR(4) NOT NULL
-);
-CREATE TABLE stdclubTBL
-(  num int AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-   stdName    VARCHAR(10) NOT NULL,
-   clubName    VARCHAR(10) NOT NULL,
-FOREIGN KEY(stdName) REFERENCES stdTBL(stdName),
-FOREIGN KEY(clubName) REFERENCES clubTBL(clubName)
-);
-INSERT INTO stdTBL VALUES ('강호동','경북'), ('김제동','경남'), ('김용만','서울'), ('이휘재','경기'),('박수홍','서울');
-INSERT INTO clubTBL VALUES ('수영','101호'), ('바둑','102호'), ('축구','103호'), ('봉사','104호');
-INSERT INTO stdclubTBL VALUES (NULL, '강호동','바둑'), (NULL,'강호동','축구'), (NULL,'김용만','축구'), (NULL,'이휘재','축구'), (NULL,'이휘재','봉사'), (NULL,'박수홍','봉사');
+USE cookDB;
+CREATE TABLE empTBL (emp CHAR(3), manager CHAR(3), empTel VARCHAR(8));
+
+INSERT INTO empTBL VALUES('나사장',NULL,'0000');
+INSERT INTO empTBL VALUES('김재무','나사장','2222');
+INSERT INTO empTBL VALUES('김부장','김재무','2222-1');
+INSERT INTO empTBL VALUES('이부장','김재무','2222-2');
+INSERT INTO empTBL VALUES('우대리','이부장','2222-2-1');
+INSERT INTO empTBL VALUES('지사원','이부장','2222-2-2');
+INSERT INTO empTBL VALUES('이영업','나사장','1111');
+INSERT INTO empTBL VALUES('한과장','이영업','1111-1');
+INSERT INTO empTBL VALUES('최정보','나사장','3333');
+INSERT INTO empTBL VALUES('윤차장','최정보','3333-1');
+INSERT INTO empTBL VALUES('이주임','윤차장','3333-1-1');
